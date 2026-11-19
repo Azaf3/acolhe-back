@@ -5,7 +5,11 @@ const jwt = require('jsonwebtoken')
 const db = require('../database')
 const { PROFESSIONAL_TYPES } = require('../database')
 
-const JWT_SECRET = process.env.JWT_SECRET || 'acolhe_secret_2024'
+// Em produção a chave é obrigatória; em desenvolvimento usa uma chave local de teste.
+if (!process.env.JWT_SECRET && process.env.NODE_ENV === 'production') {
+  throw new Error('Defina a variável de ambiente JWT_SECRET')
+}
+const JWT_SECRET = process.env.JWT_SECRET || 'dev-only-secret'
 
 // ─── Cadastro de PACIENTE ─────────────────────────────────────────────────────
 // POST /auth/register/paciente

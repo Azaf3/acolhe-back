@@ -1,10 +1,20 @@
 # Acolhe+ API
 
-Backend do Acolhe+ — Node.js + Express + SQLite.
+Backend do **Acolhe+**, app que conecta pacientes a profissionais de saúde mental. API REST com cadastro e login de pacientes e profissionais, busca com filtros e agendamento de sessões.
+
+App mobile: [acolhe-mobile](https://github.com/Azaf3/acolhe-mobile)
+
+## Stack
+
+- Node.js + Express
+- SQLite (better-sqlite3)
+- Autenticação com JWT e senhas com bcrypt
+- Dois papéis de usuário: paciente e profissional
 
 ## Como rodar
 
 ```bash
+cp .env.example .env   # defina JWT_SECRET
 npm install
 npm run dev   # desenvolvimento (nodemon)
 npm start     # produção
